@@ -6,20 +6,19 @@
 
 You are a Data Analyst working for an e-commerce company named X. You are tasked with preparing a presentation to present an overview of the company's business and operations to date for Sales and Operations Managers. 
 
-❔ The presentation should include at a minimum the following information: 
+### The presentation should include at a minimum the following information: 
 - Business overview. 
 - Customer satisfaction.  
 - 2 to 3 areas of recommendation (areas) where the company can improve.
 
-➕ Some additional information for the case study:
+### Some additional information for the case study:
 - Since there is only data up to 2018, we will assume that it is currently September 2018 (data after September 2018 you can ignore).
 - The company is based in the US, but incorporated in Brazil (that's why some information is written in Portuguese).
-
 ---
 
 ## Datasets
 
-### Orders dataset
+### ✔ Orders dataset
 Provide information about orders
 - order_id: unique ID of the order
 - customer_id: unique ID of the customer
@@ -33,7 +32,7 @@ Provide information about orders
 ![image](https://user-images.githubusercontent.com/120476961/229264008-449a687e-f4da-4af4-8e0b-761a8a1dd848.png)
 
 
-### Order items dataset  
+### ✔ Order items dataset  
 Provide information about each item in the order and shipping costs
 - order_id: unique ID of the order
 - order_item_id: ID of the item in the order (item number 1 has ID 1, item 2 has ID 2, etc. Based on this we also know how many items each order has)
@@ -45,7 +44,7 @@ Provide information about each item in the order and shipping costs
 ![image](https://user-images.githubusercontent.com/120476961/229264066-ee559d5a-7e52-49cf-a2eb-a568e5554f1a.png)
 
 
-### Order payments dataset
+### ✔ Order payments dataset
 Provide information of order payments.
 *Note that we need to combine all values of each order to have total values.*
 - order_id: unique ID of order
