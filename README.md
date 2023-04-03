@@ -98,7 +98,7 @@ Provide Customer Information
 
 
 
-## B. [Analysis](https://github.com/beto1810/E-commerce-Company/blob/main/B.Analysis.md)
+## B. [Analysis](https://github.com/DooPhiLong/E-commerce-dashboard-report/blob/main/Analyst%20and%20dashboard%20report.md)
 
 ---
 
