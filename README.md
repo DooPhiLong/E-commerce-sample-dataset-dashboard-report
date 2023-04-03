@@ -1,8 +1,8 @@
-# E-commerce Company
+# 🏢 E-commerce Company
 
 ![image](https://user-images.githubusercontent.com/120476961/229263876-bd47c7d7-260b-4bf3-9d45-16b8bd648ec0.png)
 
-## Business Case and Requirement
+## 💼 Business Case and Requirement
 
 You are a Data Analyst working for an e-commerce company named X. You are tasked with preparing a presentation to present an overview of the company's business and operations to date for Sales and Operations Managers. 
 
@@ -16,9 +16,9 @@ You are a Data Analyst working for an e-commerce company named X. You are tasked
 - The company is based in the US, but incorporated in Brazil (that's why some information is written in Portuguese).
 ---
 
-## Datasets
+## 📂 Datasets
 
-### ✔ Orders dataset
+### 📎 Orders dataset
 Provide information about orders
 - order_id: unique ID of the order
 - customer_id: unique ID of the customer
@@ -32,7 +32,7 @@ Provide information about orders
 ![image](https://user-images.githubusercontent.com/120476961/229264008-449a687e-f4da-4af4-8e0b-761a8a1dd848.png)
 
 
-### ✔ Order items dataset  
+### 📎 Order items dataset  
 Provide information about each item in the order and shipping costs
 - order_id: unique ID of the order
 - order_item_id: ID of the item in the order (item number 1 has ID 1, item 2 has ID 2, etc. Based on this we also know how many items each order has)
@@ -44,7 +44,7 @@ Provide information about each item in the order and shipping costs
 ![image](https://user-images.githubusercontent.com/120476961/229264066-ee559d5a-7e52-49cf-a2eb-a568e5554f1a.png)
 
 
-### ✔ Order payments dataset
+### 📎 Order payments dataset
 Provide information of order payments.
 *Note that we need to combine all values of each order to have total values.*
 - order_id: unique ID of order
@@ -55,7 +55,7 @@ Provide information of order payments.
 #### Sample first 10 row of Order payments dataset
 ![image](https://user-images.githubusercontent.com/120476961/229264148-77bb4ec3-46f8-47e2-a5ed-668df4d9e0ba.png)
 
-### ✔ Product dataset 
+### 📎 Product dataset 
 Provide product information
 - product_id: unique ID of product
 - product_category_name: category product name 
@@ -70,7 +70,7 @@ Provide product information
 #### Sample first 10 row of Product dataset 
 ![image](https://user-images.githubusercontent.com/120476961/229264279-3ed109da-b8a8-4539-838d-94042d771604.png)
 
-### ✔ Order reviews dataset 
+### 📎 Order reviews dataset 
 Provide review details of each order
 - review_id: unique ID of revie
 - order_id: unique ID of order
@@ -82,7 +82,7 @@ Provide review details of each order
 #### Sample first 10 row of Order reviews dataset 
 ![image](https://user-images.githubusercontent.com/120476961/229264314-c73b0b2c-e625-40b2-aec9-546a06c92073.png)
 
-### ✔ Customers dataset
+### 📎 Customers dataset
 Provide Customer Information 
 
 - customer_id: customer unique ID ( used to link with customer_id of orders_dataset table.
