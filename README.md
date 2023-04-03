@@ -94,7 +94,7 @@ Provide Customer Information
 ![image](https://user-images.githubusercontent.com/120476961/229264328-c46ecdaf-2999-45be-9a82-528b9e127841.png)
 
 
-## A. [Data Exploration and Cleaning by Power query](https://github.com/beto1810/E-commerce-Company/blob/main/A.Data%20Exploration%20%26%20Cleansing.md)
+## A. [Data Exploration and Cleaning by Power query](https://github.com/DooPhiLong/E-commerce-dashboard-report/blob/main/Data%20mining%20and%20cleaning.md)
 
 
 
