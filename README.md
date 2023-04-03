@@ -102,7 +102,7 @@ Provide Customer Information
 
 ---
 
-## Method applied
+## 🔨 Method applied
 - POWER QUERY
   - Data Exploration
   - Data cleaning
