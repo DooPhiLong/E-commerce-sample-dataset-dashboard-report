@@ -1,426 +1,140 @@
 # Data mining and cleaning
-## 🔨 Tool : Power query (M code)
+## 🔨 Tool : Power BI and Power query (M code)
 ## 📌 CLEAN and TRANSFORM DATA
 
 ### 📎 Customers Dataset
-
-- There are 4 things I would check in customers dataset:
+- There are 2 things I would check in customers dataset:
   - The overall info 
-  - There is duplicated value of primary key or not (customer_id)
-  - Checking unique values of city name, State.
-  - Capitalize the first letter of city name.
-
-<details><summary> The  Overall Infomation </summary>
+  - Capitalize the first letter of city name. 
+ 
+<details><summary> Overall infomation </summary>
   
+  - First sample 10 rows
+  - Checking distinct, unique, error, empty values
+![image](https://user-images.githubusercontent.com/120476961/229822424-ae6ffca5-7adc-43d6-af81-93a35f983b8a.png)
 </details>
- 
- <details><summary> Checking duplicated values </summary>
-  
- </details>
 
- <details><summary> Checking unique values of State </summary>
-
- </details>
- 
 <details><summary>  Capitalize the first letter of city name  </summary>
 
- </details>
-
----
-### 2️⃣ Orders Dataset
-
-- There are 3 things I would check in Orders dataset:
-  - Check Overall Info
-  - Transform data type of some columns from object to datatime
-  - Check Null values
-
-<details><summary> The  Overall  </summary>
-  
-```python
-orders.head() 
-```
-![image](https://user-images.githubusercontent.com/101379141/202590328-96673499-1c64-4a7b-a446-84457184fddc.png)
-
-```python
-orders.info()
-```
-![image](https://user-images.githubusercontent.com/101379141/202590347-7419779c-917a-47c9-81c3-bc94df5c63e6.png)
-  
- </details>
-
-<details><summary> Transform Data Type  </summary>
-  
-```python
-#Transforming the data type from object to datetime 
-orders['order_purchase_timestamp'] = pd.to_datetime(orders['order_purchase_timestamp'], format = '%Y-%m-%d %H:%M:%S')
-orders['order_approved_at'] = pd.to_datetime(orders['order_approved_at'], format = '%Y-%m-%d %H:%M:%S')
-orders['order_delivered_carrier_date'] = pd.to_datetime(orders['order_delivered_carrier_date'], format = '%Y-%m-%d %H:%M:%S')
-orders['order_delivered_customer_date'] = pd.to_datetime(orders['order_delivered_customer_date'], format = '%Y-%m-%d %H:%M:%S')
-orders['order_estimated_delivery_date'] = pd.to_datetime(orders['order_estimated_delivery_date'], format = '%Y-%m-%d %H:%M:%S')
-
-orders.info()
-```
-![image](https://user-images.githubusercontent.com/101379141/202590474-5722e629-b482-4c4e-8065-f1e7b2b266f6.png)
-  
-</details>
-
-<details><summary> Check Null Values </summary>
-
-```python
-#Check Null Values
-orders.isnull().sum()
-```
-
-```python
-#Check Percent of Null values. 
-# Because the null values does not accounts much of total dataset ( about 3% is max), we can ignore or drop it
-# However, The null values of these columns were also mean that the orders were not delivered to customer or carrier. So We can not drop them. 
-orders.isnull().mean() * 100
-
-```
-![image](https://user-images.githubusercontent.com/101379141/202590671-f64db3e4-4fa4-49d6-9c68-908cea61fee4.png)
-
+  - Choose the customer_city column -> Transfrom -> Text column tab -> Format -> Capitalized Each Word
+![image](https://user-images.githubusercontent.com/120476961/229824704-860cd078-6bd3-4d1b-b2a6-d8fdccd8b35e.png)
 </details>
 
 ---
-### 3️⃣ Order Items Dataset
+### 📎 Orders Dataset
+- There are 2 things I would check in Orders Dataset:
+  - The overall info 
+  - Explain why keep or drop the null values
+<details><summary> Overall infomation  </summary>
+ 
+  - First sample 10 rows
+  - Checking distinct, unique, error, empty values
+![image](https://user-images.githubusercontent.com/120476961/229828915-98181e53-6fad-49e9-a40a-212b6a20b303.png)
+  
+</details>
 
+ <details><summary> Null values  </summary>
+
+- The null values of 2 columns ( review_comment_title, review_comment_message) were also mean that the customer had no comment about the service and the comment review feature was not compulsory for customer. So we can not drop them .
+</details>
+
+
+
+
+ 
+---
+### 📎 Order Items Dataset
 - The order items dataset is clean so we don't need to adjust it.
 
-<details><summary> The  Overall  </summary>
+<details><summary> Overall infomation  </summary>
 
- ```python
- order_items.head() 
- ```
- ![image](https://user-images.githubusercontent.com/101379141/202591464-b8cd4a4a-91f9-401c-9c75-e2c33a6235e3.png)
-
- ```python
- order_items.describe() 
- ```
- ![image](https://user-images.githubusercontent.com/101379141/202591488-d3e2293e-cd45-4865-ac51-c0e7d548658d.png)
-
- ```python
- order_items.info() 
- ```
- 
- ![image](https://user-images.githubusercontent.com/101379141/202591523-23610480-51e9-401c-9ca9-3b462101b617.png)
- 
-  
+  - First sample 10 rows
+  - Checking distinct, unique, error, empty values
+![image](https://user-images.githubusercontent.com/120476961/229832657-6bca2e2f-c583-42ff-8ee5-7f20498de55c.png)
 </details>
  
 ---
-### 4️⃣ Order Payments Dataset
+### 📎 Order Payments Dataset
 
-- After The order payments dataset is clean. We don't need to adjust it.
+- The Order Payments Dataset is clean so we don't need to adjust it.
 
-<details><summary> The  Overall  </summary>
+<details><summary> Overall infomation  </summary>
 
- ```python
- order_payments.head() 
- ```
-![image](https://user-images.githubusercontent.com/101379141/202591939-ccd8d81a-2a52-4cab-affc-efded8b4b934.png)
-
-```python
-order_payments.info() 
-```
-![image](https://user-images.githubusercontent.com/101379141/202591974-428d8f50-9fd3-4ce2-b206-8dbbd40c60e1.png)
-
-  
-```python
-order_payments['payment_type'].unique() 
-```
-![image](https://user-images.githubusercontent.com/101379141/202591995-81284279-97c3-49a2-a953-f3b0b3bab9cb.png)
-  
+  - First sample 10 rows
+![image](https://user-images.githubusercontent.com/120476961/229833226-40881da2-20d2-4060-bf27-179d1ffd2786.png)
 </details>
 
 ---
-### 5️⃣ Order Reviews Dataset
+### 📎 Order Reviews Dataset
 
-- There are 2 things that we are doing with this dataset:
-  - The Overall
-  - Transform data type from object to datetime 
+- There are 2 things I would check in Orders Dataset:
+  - The overall info 
+  - Explain why keep or drop the null values
+<details><summary> Overall infomation  </summary>
 
-<details><summary> The  Overall  </summary>
-
- ```python
- order_reviews.head() 
- ```
-![image](https://user-images.githubusercontent.com/101379141/202593250-30d0b6e6-fd98-4413-98ac-93772b75b8d7.png)
+  - First sample 10 rows
+  - Checking distinct, unique, error, empty values
+![image](https://user-images.githubusercontent.com/120476961/229834562-2cf0aaed-3879-4114-aae4-46c3ab6aa5aa.png)
   
-```python
-order_reviews.info() 
-```
-![image](https://user-images.githubusercontent.com/101379141/202593274-eb0ce20e-5c1e-4b96-8936-ed3a2d43536a.png)
-  
-```python
-order_reviews['review_score'].value_counts()
-```
-![image](https://user-images.githubusercontent.com/101379141/202593298-38b5ceb6-5e8d-4695-93c6-8d624c479258.png)
- 
 </details>
 
-<details><summary> Transform data type  </summary>
+<details><summary> Null values  </summary>
 
-```python
- order_reviews['review_creation_date'] = pd.to_datetime(order_reviews['review_creation_date'])
-order_reviews['review_answer_timestamp'] = pd.to_datetime(order_reviews['review_answer_timestamp'])
-
-order_reviews['review_creation_date'] = order_reviews.review_creation_date.dt.strftime('%m/%d/%Y')
-order_reviews['review_answer_timestamp'] = order_reviews.review_answer_timestamp.dt.strftime('%m/%d/%Y')
-order_reviews.head(5)
- ```
-  
-![image](https://user-images.githubusercontent.com/101379141/202593442-736774bf-875a-4ff0-a273-bb31b2958a31.png)
- 
+- The null values of 2 columns ( review_comment_title, review_comment_message) were also mean that the customer had no comment about the service and the comment review feature was not compulsory for customer. So we can not drop them .
 </details>
+
+
 
 ---  
-###  6️⃣Products Dataset
+### 📎 Products Dataset
   
 - There are 3 things that we are doing with this dataset:
-  - The Overall
-  - Checking Null values .
-  - Replacing the "0 gram" of product weight to median
+  - The Overall info 
+  - Checking the 0 value in 4 column product_weight_g, product_length_cm, product_height_cm, product_width_cm. IF it exist, Replacing it by median of it's column data 
 
-<details><summary> The  Overall  </summary>
+<details><summary> Overall infomation  </summary>
   
- ```python
- products.head() 
- ```
-![image](https://user-images.githubusercontent.com/101379141/202595562-89179cb5-d1b8-4503-ac9b-908cc286c44a.png)
-  
-```python
-products.info() 
-```
-![image](https://user-images.githubusercontent.com/101379141/202595592-4a82a95a-9136-48ed-bba7-2fa4bc89777c.png)
-
-  
-```python
-products.describe()
-``` 
-![image](https://user-images.githubusercontent.com/101379141/202595632-653f740c-1449-4279-a542-d9d506b269bf.png)
-
-```python
-# Min of product_weight_g = 0 , so we check this column to make sure there is nothing anomaly
-products[products['product_weight_g']== 0]  
-```
-  
- ![image](https://user-images.githubusercontent.com/101379141/202595685-8a7e6a1c-c51d-4c21-a6b4-779cce86637b.png)
+  - First sample 10 rows
+  - Checking distinct, unique, error, empty values
+![image](https://user-images.githubusercontent.com/120476961/229841083-b7008ba3-9724-44a4-9697-b7f76c9af1b7.png)
+![image](https://user-images.githubusercontent.com/120476961/229841187-aea1baa0-a9bf-46fa-a506-aadbce55fad9.png)
 
 </details>
 
-<details><summary> Check Null Values </summary>
+<details><summary> Checking the 0 value </summary>
 
-```python
-  #Check Null Values
-  products.isnull().sum()
-  ```
-  ![image](https://user-images.githubusercontent.com/101379141/202596089-660af9b9-c2b1-4f9b-b894-945d6c388aba.png)
-
-
-```python  
-#Check Null values of category name column
-products[products['product_category_name'].isnull() == True]
-```
-![image](https://user-images.githubusercontent.com/101379141/202596188-5f0c384f-8126-4b1e-b4b6-fc80c8d0841b.png)
-
-```python
-#Check Null values of weight column
-products[products['product_weight_g'].isnull() == True]
-```
+- Drop down the arrow icon of each column to check all the values exist in that columns.
   
-![image](https://user-images.githubusercontent.com/101379141/202596235-c4e5dffb-90cf-4c80-97a0-3d14e83ba554.png)  
+![image](https://user-images.githubusercontent.com/120476961/229843120-828e740e-fb1a-4292-b90c-ac3895f2fc9c.png)
+  
+- Only product_weight_g column has 0 value
+  
+![image](https://user-images.githubusercontent.com/120476961/229843396-1bc45962-9df1-45d7-a5ec-14ef8e6026ab.png)
 
- ```python
-  #Drop all 610 Null value rows , because they are not significant ( 610  rows compare to 32951 total entries )
-  products = products.dropna()  
-  products.isnull().sum()  
- ```
- ![image](https://user-images.githubusercontent.com/101379141/202596277-466fbd1b-d48b-4621-87a7-de256a357f78.png)
-                                                                                       
 </details>  
 
-<details><summary> Check product weight column </summary>
+<details><summary> Replacing the "0 gram" of product weight to median</summary>
 
-  ```python
-  #Check product_weight_g distribution
-  sns.distplot(products['product_weight_g'])
-  ```
-  ![image](https://user-images.githubusercontent.com/101379141/202597280-5893fdcf-addb-40af-8b80-13b6561c8070.png)
+- Calculate the median of product_weight_g
   
-  ```python
-  #Replace "0" values of weight to "median"
-  products['product_weight_g']= products['product_weight_g'].replace(0, products['product_weight_g'].median())  
-  ```
+  - Choose the product_weight_g column -> Transfrom -> Number column tab -> Statistics -> Median
   
-  ```python
-  products.describe()
-  ```
-  ![image](https://user-images.githubusercontent.com/101379141/202597233-2e49fc07-7420-4dad-98a2-39934266b62a.png)
+![image](https://user-images.githubusercontent.com/120476961/229845989-c63385aa-8852-4c72-862d-394c3220789b.png)
   
-</details>  
-
----  
-### 7️⃣ Product Name Translation Dataset
+  - We got the median 
   
-- There are 3 things that we are doing with this dataset:
-  - Checking The Overall  
-  - Merge the product name of 2 table  
-  - Checking Null values of merged table and replacing Null values by new category. 
-
-<details><summary> The Overall </summary>
-
-```python
-product_name_translation.head()
-```
-![image](https://user-images.githubusercontent.com/101379141/202599864-11041880-bf87-475b-b51e-2fb433797183.png)
-
-```python
-product_name_translation.info()
-```
+![image](https://user-images.githubusercontent.com/120476961/229845511-aea2bfce-618e-491e-957a-620884d569ff.png)
   
-![image](https://user-images.githubusercontent.com/101379141/202599948-948b1539-f4af-48cd-b166-b622589b4209.png)
+- Replace 
+  - Choose the product_weight_g column -> Transfrom -> Any column tab -> Replace values
   
-</details>  
+  ![image](https://user-images.githubusercontent.com/120476961/229846571-ce9781cf-e860-49ae-8b20-c7c6bf1807d1.png)
 
-<details><summary> Merge product name of 2 table </summary>
-
-```python
-#Compare the product name of 2 table 
-print(product_name_translation['product_category_name'].nunique())
-print(products['product_category_name'].nunique()) 
-```
-![image](https://user-images.githubusercontent.com/101379141/202600071-0df0c1bc-816a-48df-8eef-aa62d1f147b6.png)
-
-```python
-product_summarize = products.merge(product_name_translation,how ='left', on = 'product_category_name' )  
-```
-  
-</details>  
-
-<details><summary> Check Null values of merged table and Replace Null values </summary>
-  
-```python
-#Check Null values
-product_summarize.isnull().sum()  
-```
-![image](https://user-images.githubusercontent.com/101379141/202600293-a3e49db7-04e0-4845-8eb0-f3ee59b72501.png)
-
-```python
-product_summarize[product_summarize['product_category_name_english'].isnull() == True]  
-```
-![image](https://user-images.githubusercontent.com/101379141/202600383-93313b22-bed2-4d2c-836b-27bf91d69c18.png)
-
-```python
-#Replace Null Value by Unspecified
-
-product_summarize['product_category_name_english'] = product_summarize['product_category_name_english'].fillna(value ='Unspecified')  
-product_summarize.isnull().sum()  
-
-```
-![image](https://user-images.githubusercontent.com/101379141/202600501-2c762e90-fa24-4e68-a958-ca4564de51c6.png)
-    
-</details>  
+</details> 
 
 ---
-### ✔ Save File 
 
-<details><summary> Code here  </summary>
-
-```python
-#File customers
-customers.to_csv('/content/drive/MyDrive/Final/De 1/customers_dataset.csv',index=False)
-
-#File orders dataset
-orders.to_csv('/content/drive/MyDrive/Final/De 1/orders_dataset.csv',index=False)
-
-#File orders items
-order_items.to_csv('/content/drive/MyDrive/Final/De 1/order_items_dataset.csv',index=False)
-
-#File order payments
-order_payments.to_csv('/content/drive/MyDrive/Final/De 1/order_payments_dataset.csv',index=False)
-
-#File order review
-order_reviews.to_csv('/content/drive/MyDrive/Final/De 1/order_reviews_dataset.csv',index=False)
-
-#Merged file of product & produc_translation 
-product_summarize.to_csv('/content/drive/MyDrive/Final/De 1/product_summarize_dataset.csv',index=False)
-
-```
-</details>  
-
----
-## 📊 POWER BI
-
-### 1. Transform Data
-
-After import dataset, we need to promote header of columns and change some data type columns. 
-
-<details><summary> Customers dataset  </summary>
-
- - Source (first 10 rows)
-  
-![image](https://user-images.githubusercontent.com/101379141/202607728-04d35ccc-0db2-49b4-97f8-0d6e2cb0c03c.png)
-  
- - Transformed 
-  
- ![image](https://user-images.githubusercontent.com/101379141/202607690-acfd75d9-4359-4af6-85b8-c98c78fac434.png)
-
-</details>  
-
-<details><summary> Order Items dataset  </summary>
- 
-- Source (first 10 rows)
-  
- ![image](https://user-images.githubusercontent.com/101379141/202607942-2038f7a4-e235-4a46-ac7b-86e2b673b294.png)
-  
-- Transformed
-  
- ![image](https://user-images.githubusercontent.com/101379141/202608029-b7bc5871-cca9-477f-a03b-773566b168aa.png)
-  
-</details>  
-
-
-<details><summary> Order Payments dataset  </summary>
-
-- Source (First 10 rows)
-  ![image](https://user-images.githubusercontent.com/101379141/202608207-1e51c2b0-5257-458c-8560-acbe82bdc4ec.png)
-  
-- Transformed
-  ![image](https://user-images.githubusercontent.com/101379141/202608270-29d59313-6861-4c00-a2e1-643fc7f92ccd.png)
-</details>  
-
-<details><summary> Order Reviews dataset  </summary>
-
-- Source (First 10 rows)
-![image](https://user-images.githubusercontent.com/101379141/202608439-6de93b9f-57e5-4dde-8baf-46037492f1d8.png)
-
-- Transformed
-![image](https://user-images.githubusercontent.com/101379141/202608488-a2aa5431-19b6-4203-bf35-3515ab38ebdf.png)
-
-</details>  
-
-<details><summary> Orders dataset  </summary>
-
-- Source (First 10 rows)
- ![image](https://user-images.githubusercontent.com/101379141/202608610-952075c6-cc13-4447-af29-f3a0d6ca5d7d.png)
-  
-- Transformed
-  ![image](https://user-images.githubusercontent.com/101379141/202608652-21c233c4-5298-4060-a50b-043992d4cfdd.png)
-
-</details>  
-
-<details><summary> Product Summarize Dataset  </summary>
-  
-- Source (First 10 rows)
-![image](https://user-images.githubusercontent.com/101379141/202608743-b762ec37-e78f-4db7-ba56-fc6e6d2fd238.png)
-
-- Transformed  
-![image](https://user-images.githubusercontent.com/101379141/202608775-130d0dd2-b3ec-4063-9eb1-174b5270b585.png)
-
-</details>  
-
-### 2. Dax, Measure
+## 📌 Dax, Measure
 
 To support for anlysis chart, We need to create following measure and dax :
 
@@ -499,23 +213,10 @@ Rank_Product = RANKX(all(order_items_dataset[English_name_product]),[Count_Produ
   
 </details>
 
-### 3. Create New Table
-
-To match the average score of order. I have to create new table 
-
-```
-Average = SUMMARIZECOLUMNS(order_reviews_dataset[order_id],"Average_Score",AVERAGE(order_reviews_dataset[review_score]))
-```
-<details><summary> The First Few Rows  </summary>
- 
-![image](https://user-images.githubusercontent.com/101379141/202612783-d8974939-f0b0-43e3-a655-f003e98c0758.png)
-  
-</details>
-
-**Final Model**
+## 📌 Data model
 
 <details><summary> Click Here  </summary>
 
-![image](https://user-images.githubusercontent.com/101379141/202614575-3ffb8db6-9e53-42af-8a08-99f5423c4a5e.png)
+![image](https://user-images.githubusercontent.com/120476961/229851073-2f60ca70-b7ac-43af-9c37-fc629b137901.png)
 
 </details>
