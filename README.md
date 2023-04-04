@@ -86,7 +86,7 @@ Provide review details of each order
 Provide Customer Information 
 
 - customer_id: customer unique ID ( used to link with customer_id of orders_dataset table.
-- customer_unique_id: mã unique ID of customer in system of customer information management. 
+- customer_unique_id: unique ID of customer in system of customer information management. 
 - customer_zip_code_prefix: zip code of customer
 - customer_city: City name of customer 
 - customer_state: State name of customer
