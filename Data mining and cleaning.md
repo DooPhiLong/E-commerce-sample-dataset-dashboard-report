@@ -35,7 +35,7 @@
 
  <details><summary> Null values  </summary>
 
-- The null values of 2 columns ( review_comment_title, review_comment_message) were also mean that the customer had no comment about the service and the comment review feature was not compulsory for customer. So we can not drop them .
+- The null values of 3 columns ( order_approved_at, order_delivered_carrier_date, order_delivered_customer_date)  also mean that the orders were not delivered to customer or carrier. So We can not drop them. 
 </details>
 
 
