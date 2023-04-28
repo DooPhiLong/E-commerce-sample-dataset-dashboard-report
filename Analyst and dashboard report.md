@@ -46,23 +46,20 @@
 ![image](https://user-images.githubusercontent.com/120476961/235074115-2e607214-4add-4206-bdb1-bc2b496529d4.png)
 
 
-- With development of economic and technology, credit card is the first choice in selection of payment with about 80k orders used credit card
+- With development of economic and technology, credit card is the first choice in selection of payment with about 76k orders used credit card
   - The time-saving of credit card is the reason make it become the most popular one. 
   - Secondly, Credit card is also linked with the installment of banks and finance services. The procedure to start an installment is easy and fast.
-
-- In over 5k of voucher applied to orders, the security category items accounts for over a half of total. I believe that because of their the high cost and not-easy approaching, the retailers has provided the bunch of vouchers to promote of purchasing.
+- Based on factors such as geographical location, traffic conditions, topography, each province has a different average delivery time.
+  - We should shorten the delivery time as much as possible, so that we can deliver the goods to the customer as quickly as possible.
 
 --- 
 # 5. Review 
 
-![image](https://user-images.githubusercontent.com/120476961/235074161-f74b8f4b-ea71-4dfd-913a-853ee71d4fd9.png)
+![image](https://user-images.githubusercontent.com/120476961/235112754-4249e147-3ae6-4153-9aa6-15d894d9f443.png)
 
-- As we can see that 5-star reviews made up the majority of total reviews. 
-  - However, 1-star reviews also contribute a great number with third-place. And 77% of 1-star reviews attached with a comments.
-  - The majority of 2-star reviews are comments reviews.
- 
-- [Roraima (RR)](https://en.wikipedia.org/wiki/Roraima) State , [Maranhao (MA)](https://en.wikipedia.org/wiki/Maranh%C3%A3o), [Alagoas (AL)](https://en.wikipedia.org/wiki/Alagoas)  are locations where have the lowest Average Reviews Score with 50% comment.
-  - It can be understood that the citizen was angry because of late delivery, But because of its Geographical location.
+- We got 42k order have comment (41,76%) and quite good average score (4.07 / 5.0), 57,43% is 5 score and 3,23% is 1 score
+- We got top 5 States and Product category have highest average score, and also top 5 bottom of it 
+  - The things that cause customers to underestimate some products or services are because the quality of the product is not good, the product has been damaged during transportation, the shipping time is too long.....
 
 --- 
 
