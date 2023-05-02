@@ -137,80 +137,115 @@
 ## 📌 Dax, Measure
 
 To support for anlysis chart, We need to create following measure and dax :
-
-<details><summary> 1%star - to filter 1 star review  </summary>
+<details><summary> Add Review score column to order_items_dataset (related with review_score column of order_reviews_dataset)   </summary>
 
 ```
-%1star = divide(calculate(count(order_items_dataset[English_name_product]),order_items_dataset[Average_score] = 1),count(order_items_dataset[English_name_product]))
+Review score = LOOKUPVALUE(order_reviews_dataset[review_score],order_reviews_dataset[order_id],order_items_dataset[order_id])
+  
+```  
+</details>  
+
+<details><summary> Add comment column to order_reviews_dataset (show that order has comment or not)  </summary>
+
+```
+Comment = if(order_reviews_dataset[review_comment_message] = BLANK(),"No comment","Comment")
+  
+```  
+</details>  
+
+<details><summary> Split month and year from order_delivered_customer_date column of orders_dataset table to two column </summary>
+
+```
+Month_delivered_customer_date = MONTH(orders_dataset[order_delivered_customer_date])
+Year_delivered_customer_date = YEAR(orders_dataset[order_delivered_customer_date])
+  
+```  
+</details>  
+
+<details><summary> Split hour from order_purchase_timestamp column of orders_dataset table to a column </summary>
+
+```
+Hour purchase timestamp = HOUR(orders_dataset[order_purchase_timestamp])
+  
+```  
+</details>  
+
+<details><summary> calculate the total time that each order is delivered to the customer </summary>
+
+```
+Total time to receive the goods = DATEDIFF(orders_dataset[order_purchase_timestamp],orders_dataset[order_delivered_customer_date],DAY)
+  
+```  
+</details>  
+
+<details><summary> Count of Orders </summary>
+
+```
+Count of Orders = COUNT(orders_dataset[order_id])
   
 ```  
 </details>  
 
   
-<details><summary> 5%star - to filter 5 star review  </summary>
+<details><summary> Count of product </summary>
 
 ```
-%5star = divide(calculate(count(order_items_dataset[English_name_product]),order_items_dataset[Average_score] = 5),count(order_items_dataset[English_name_product]))
+Count of product = count(order_items_dataset[product_id])
 ```
 </details>  
 
 
-<details><summary> %Comment - to calculate % order has comment   </summary>
+<details><summary>  Count of comments  </summary>
 
 ```
-%Comment = Divide(CALCULATE(count(order_reviews_dataset[Comment]), order_reviews_dataset[Comment] = "Comment"),count(order_reviews_dataset[order_id]))
+Count of comment orders = COUNTROWS(FILTER(order_reviews_dataset,order_reviews_dataset[Comment] = "Comment"))
 ```
 </details> 
 
-<details><summary> Average_Score - Average score of orders   </summary>
+<details><summary> Average review score   </summary>
 
 ```
-Average_Score = SUM(order_items_dataset[Average_score])/count(order_items_dataset[order_id])
+Average review score = DIVIDE(SUM(order_reviews_dataset[review_score]), COUNT(order_reviews_dataset[review_score]))
 ```
 </details>
 
-<details><summary> Comment - Count of orders has comment   </summary>
+<details><summary> Amount of orders previous month   </summary>
 
 ```
-Comment = CALCULATE(count(order_reviews_dataset[Comment]),order_reviews_dataset[Comment] = "Comment")
+Orders_previous_month = 
+CALCULATE([Count of Orders],
+FILTER(ALLSELECTED(orders_dataset),
+    if(max(orders_dataset[Month_delivered_customer_date]) = 1, 
+
+        orders_dataset[Year_delivered_customer_date] = max(orders_dataset[Year_delivered_customer_date]) - 1
+        &&
+        orders_dataset[Month_delivered_customer_date] = 12, 
+
+        orders_dataset[Year_delivered_customer_date] = max(orders_dataset[Year_delivered_customer_date])
+        &&
+        orders_dataset[Month_delivered_customer_date] = max(orders_dataset[Month_delivered_customer_date]) -1)))
 ```
 </details>
 
-<details><summary> Comment_Star - Calculate review score of orders having comment   </summary>
+<details><summary> Growth percentage monthly   </summary>
 
 ```
-Comment_Star = calculate(count(order_reviews_dataset[review_score]),order_reviews_dataset[Comment] = "Comment")
+Growth percentage = DIVIDE(([Count of Orders]-[Orders_previous_month]),[Orders_previous_month])
 ```
 </details>
 
-<details><summary> Total_time_to_delivery average per customer_city   </summary>
+<details><summary> Conditional statement to format the growth percentage  </summary>
 
 ```
-Total_time_to_delivery average per customer_city = DIVIDE(sum(orders_dataset[Total_time_to_delivery]),count(orders_dataset[order_id]))
+Cond format growth per = IF ( [Growth percentage] < 0, 1,IF(ISBLANK([Growth percentage]),0,2))
 ```
 </details>
 
-<details><summary> Voucher_cat - calculate orders has applied voucher  </summary>
+<details><summary> Ranking amount of product category has sold  </summary>
 
 ```
-Voucher_cat = Divide(CALCULATE(count(order_payments_dataset[payment_type]),order_payments_dataset[payment_type] = "voucher"),count(order_items_dataset[product_id]))
+Rank cate = RANKX(ALL(product_summarize_dataset[product_category_name_english]),[Count of product],,DESC,Dense)
 ```
-</details>
-
-<details><summary> Count Product  </summary>
-
-```
-Count_Product = COUNT(order_items_dataset[English_name_product])
-```
-  
-</details>
-
-<details><summary> Rank Product  </summary>
-
-```
-Rank_Product = RANKX(all(order_items_dataset[English_name_product]),[Count_Product])
-```
-  
 </details>
 
 ## 📌 Data model
