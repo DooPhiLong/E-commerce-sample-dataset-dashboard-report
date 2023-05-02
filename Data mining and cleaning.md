@@ -141,8 +141,8 @@ To support for anlysis chart, We need to create following measure and dax :
 
 ```
 Review score = LOOKUPVALUE(order_reviews_dataset[review_score],order_reviews_dataset[order_id],order_items_dataset[order_id])
-  
 ```  
+![image](https://user-images.githubusercontent.com/120476961/235682271-38865fa1-7500-4f7a-9a94-91d36af5892c.png)
 </details>  
 
 <details><summary> Add comment column to order_reviews_dataset (show that order has comment or not)  </summary>
@@ -150,7 +150,9 @@ Review score = LOOKUPVALUE(order_reviews_dataset[review_score],order_reviews_dat
 ```
 Comment = if(order_reviews_dataset[review_comment_message] = BLANK(),"No comment","Comment")
   
-```  
+```
+![image](https://user-images.githubusercontent.com/120476961/235682673-bdce1cbb-5915-47f6-b942-58a7f3fb4c7b.png)
+
 </details>  
 
 <details><summary> Split month and year from order_delivered_customer_date column of orders_dataset table to two column </summary>
@@ -159,7 +161,9 @@ Comment = if(order_reviews_dataset[review_comment_message] = BLANK(),"No comment
 Month_delivered_customer_date = MONTH(orders_dataset[order_delivered_customer_date])
 Year_delivered_customer_date = YEAR(orders_dataset[order_delivered_customer_date])
   
-```  
+```
+![image](https://user-images.githubusercontent.com/120476961/235683039-c8455168-34bc-48e7-8431-5dbd35b0c292.png)
+
 </details>  
 
 <details><summary> Split hour from order_purchase_timestamp column of orders_dataset table to a column </summary>
@@ -167,7 +171,9 @@ Year_delivered_customer_date = YEAR(orders_dataset[order_delivered_customer_date
 ```
 Hour purchase timestamp = HOUR(orders_dataset[order_purchase_timestamp])
   
-```  
+```
+![image](https://user-images.githubusercontent.com/120476961/235683105-976c879a-e44d-4ee1-8551-9daea07740a4.png)
+
 </details>  
 
 <details><summary> calculate the total time that each order is delivered to the customer </summary>
@@ -175,7 +181,9 @@ Hour purchase timestamp = HOUR(orders_dataset[order_purchase_timestamp])
 ```
 Total time to receive the goods = DATEDIFF(orders_dataset[order_purchase_timestamp],orders_dataset[order_delivered_customer_date],DAY)
   
-```  
+```
+![image](https://user-images.githubusercontent.com/120476961/235683172-86b4ca03-fc18-4fe7-a39b-012f8a5076a3.png)
+
 </details>  
 
 <details><summary> Count of Orders </summary>
