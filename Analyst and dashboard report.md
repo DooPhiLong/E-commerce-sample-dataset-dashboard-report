@@ -63,18 +63,11 @@
 
 --- 
 
-# 6. Conclusion & Recommendation
-
-- In Last 7 days, Nearly New Nautical Website has experienced some significant numbers as:
-  - Family and sporty items are the most purchasing items. There are also other trending product following by different months.
-  - Company did a great job in delievery service, however it's hard to delievery some remote states limiting by geographical location.
-  - Credit card is the most popular finance service 
-  - Company service received a great review from customer with majority of 5-star 
-
-
-
+# 6. Recommendation
 - 🚩 So, I believe that this E-commerce should:
-  - Runing creative seasonal marketing campaigns with different items.
-  - Doing the suggestion marketing services to promote the business.
-  - With remote areas, to promote the services and quality, we should create specific campaigns as giving more vouchers and discounts to these areas to improve their experience.
-  - Keep continuing coperating with local business as bank and finance services to upgrade the experience services of customers.
+  - Run creative seasonal marketing campaigns (vouchers, discounts...) with different products. Besides the best-selling items, we need to have marketing campaigns for the items that are not selling well.
+  - Most of the reasons suburban areas have low product sales, small orders and slow delivery is because the geographical conditions of both customers and shippers are not guaranteed. Therefore, we need to invest in building freight stations in the suburbs so that customers in that area can easily order.
+  - Marketing campaigns should be most active in the hours of 11am, 1pm, 2pm, 3pm, and 4pm, because that time is very crowded with free customers.
+  - Continue to accompany domestic enterprises such as banking and financial services to upgrade customer service experience. Especially, the paid service
+  - Should have automatic feedback tasks to thank customers when they have a positive review
+  - Listen and record negative customer feedback about products and services... To find out the unreasonable points (price, quality, delivery, errors) and fix them
