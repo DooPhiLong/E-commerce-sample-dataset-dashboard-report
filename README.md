@@ -96,8 +96,9 @@ Provide Customer Information
 
 ## A. [Data Exploration and Cleaning by Power query](https://github.com/DooPhiLong/E-commerce-dashboard-report/blob/main/Data%20mining%20and%20cleaning.md)
 
-## B. [Analysis](https://github.com/DooPhiLong/E-commerce-sample-dataset-dashboard-report/blob/main/Analytic%20and%20dashboard%20report.md)
+## B. [Interactive dashboard](https://app.powerbi.com/view?r=eyJrIjoiMmZhZTk3NzctOTY3Ni00YTU0LTljMTgtZGQyYTkxMjlhNTVlIiwidCI6Ijk4YWRhNjgwLWUzZjQtNDhjYi04ZmJiLWM4YjEwY2I5N2FlZCIsImMiOjEwfQ%3D%3D)
 
+## C. [Analysis](https://github.com/DooPhiLong/E-commerce-sample-dataset-dashboard-report/blob/main/Analytic%20and%20dashboard%20report.md)
 ---
 
 ## 🔨 Method applied
